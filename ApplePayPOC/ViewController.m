@@ -61,7 +61,11 @@ generateRequestWithCertificateChain:(NSArray<NSData *> *)certificates
 -(void)addPaymentPassViewController:(PKAddPaymentPassViewController *)controller
          didFinishAddingPaymentPass:(PKPaymentPass *)pass
                               error:(NSError *)error{
+    if(pass == nil){
+        NSLog(@"Error: %@",error.localizedDescription);
+    }
     
+    [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
