@@ -56,6 +56,15 @@ generateRequestWithCertificateChain:(NSArray<NSData *> *)certificates
     NSArray * certs = certificates; //Certificates
     NSData * n = nonce; // Nonce
     NSData * nSignature = nonceSignature; //Nonce Signature
+    
+    //Service call here
+
+    //Create PKAddPaymentPassRequest
+    PKAddPaymentPassRequest * passrequest = [[PKAddPaymentPassRequest alloc] init];
+    passrequest.encryptedPassData = @"";
+    passrequest.activationData = @"";
+    passrequest.ephemeralPublicKey =@"";
+    
 }
 
 -(void)addPaymentPassViewController:(PKAddPaymentPassViewController *)controller
