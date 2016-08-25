@@ -10,6 +10,8 @@
 
 @interface ViewController ()
 
+@property (nonatomic,retain) PKPassLibrary * passLib;
+
 @end
 
 @implementation ViewController
@@ -24,7 +26,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)initProvisioning:(id)sender {
+-(BOOL)isWalletAvailable{
+    return [PKAddPaymentPassViewController canAddPaymentPass];
+}
+
+-(BOOL)canAddCardToWallet: (NSString*)primaryAccountIdentifier{
+    return [_passLib canAddPaymentPassWithPrimaryAccountIdentifier:primaryAccountIdentifier];
+}
+
+- (IBAction)initiateProvisioning:(id)sender {
     
     PKAddPaymentPassRequestConfiguration * passDetails = [[PKAddPaymentPassRequestConfiguration alloc] initWithEncryptionScheme:PKEncryptionSchemeECC_V2];
     passDetails.cardholderName = @"";
@@ -34,7 +44,7 @@
     passDetails.paymentNetwork = @"";
     
     PKAddPaymentPassViewController * passViewController = [[PKAddPaymentPassViewController alloc] initWithRequestConfiguration:passDetails delegate:self];
-    [self.navigationController pushViewController:passViewController animated:NO];
+    [self presentViewController:passViewController animated:YES completion:nil];
 }
 
 -(void)addPaymentPassViewController:(PKAddPaymentPassViewController *)controller
