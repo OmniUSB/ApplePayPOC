@@ -15,6 +15,7 @@
 		23B2CA971D6CB1A500BAD6BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23B2CA951D6CB1A500BAD6BB /* LaunchScreen.storyboard */; };
 		23B2CAA21D6CB1A500BAD6BB /* ApplePayPOCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B2CAA11D6CB1A500BAD6BB /* ApplePayPOCTests.m */; };
 		23B2CAAD1D6CB1A500BAD6BB /* ApplePayPOCUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23B2CAAC1D6CB1A500BAD6BB /* ApplePayPOCUITests.m */; };
+		23B2CABD1D6CF16800BAD6BB /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23B2CABC1D6CF16800BAD6BB /* PassKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		23B2CAA81D6CB1A500BAD6BB /* ApplePayPOCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApplePayPOCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23B2CAAC1D6CB1A500BAD6BB /* ApplePayPOCUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplePayPOCUITests.m; sourceTree = "<group>"; };
 		23B2CAAE1D6CB1A500BAD6BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23B2CABC1D6CF16800BAD6BB /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23B2CABD1D6CF16800BAD6BB /* PassKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +84,7 @@
 		23B2CA7B1D6CB1A500BAD6BB = {
 			isa = PBXGroup;
 			children = (
+				23B2CABC1D6CF16800BAD6BB /* PassKit.framework */,
 				23B2CA861D6CB1A500BAD6BB /* ApplePayPOC */,
 				23B2CAA01D6CB1A500BAD6BB /* ApplePayPOCTests */,
 				23B2CAAB1D6CB1A500BAD6BB /* ApplePayPOCUITests */,
@@ -505,6 +509,7 @@
 				23B2CAB31D6CB1A500BAD6BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		23B2CAB41D6CB1A500BAD6BB /* Build configuration list for PBXNativeTarget "ApplePayPOCTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +518,7 @@
 				23B2CAB61D6CB1A500BAD6BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		23B2CAB71D6CB1A500BAD6BB /* Build configuration list for PBXNativeTarget "ApplePayPOCUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +527,7 @@
 				23B2CAB91D6CB1A500BAD6BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
