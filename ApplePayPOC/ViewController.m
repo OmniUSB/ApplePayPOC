@@ -26,14 +26,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+//  Method to validate that the device supports Wallet operations
 -(BOOL)isWalletAvailable{
     return [PKAddPaymentPassViewController canAddPaymentPass];
 }
 
+//  Method to validate that the card we want to add is not already in the Wallet
 -(BOOL)canAddCardToWallet: (NSString*)primaryAccountIdentifier{
     return [_passLib canAddPaymentPassWithPrimaryAccountIdentifier:primaryAccountIdentifier];
 }
 
+//  "Add card" button behavior
 - (IBAction)initiateProvisioning:(id)sender {
     
     PKAddPaymentPassRequestConfiguration * passDetails = [[PKAddPaymentPassRequestConfiguration alloc] initWithEncryptionScheme:PKEncryptionSchemeECC_V2];
@@ -47,29 +50,35 @@
     [self presentViewController:passViewController animated:YES completion:nil];
 }
 
+//Delegate Callback #1
 -(void)addPaymentPassViewController:(PKAddPaymentPassViewController *)controller
 generateRequestWithCertificateChain:(NSArray<NSData *> *)certificates
                               nonce:(NSData *)nonce
                      nonceSignature:(NSData *)nonceSignature
                   completionHandler:(void (^)(PKAddPaymentPassRequest * _Nonnull))handler{
     
+    //Information we need to send to DCIS
     NSArray * certs = certificates; //Certificates
     NSData * n = nonce; // Nonce
     NSData * nSignature = nonceSignature; //Nonce Signature
     
-    //Service call here
+    //Service call to DCIS here - It can be done using Grand Central Dispatch
 
     //Create PKAddPaymentPassRequest
     PKAddPaymentPassRequest * passrequest = [[PKAddPaymentPassRequest alloc] init];
-    passrequest.encryptedPassData = @"";
-    passrequest.activationData = @"";
-    passrequest.ephemeralPublicKey =@"";
+    passrequest.encryptedPassData = @""; //this should be a NSDATA object hence the warning, entering an empty string temporarily
+    passrequest.activationData = @""; //this should be a NSDATA object hence the warning, entering an empty string temporarily
+    passrequest.ephemeralPublicKey = @""; //this should be a NSDATA object hence the warning, entering an empty string temporarily
     
 }
 
+
+//Delegate Callback #2
 -(void)addPaymentPassViewController:(PKAddPaymentPassViewController *)controller
          didFinishAddingPaymentPass:(PKPaymentPass *)pass
                               error:(NSError *)error{
+    
+    // The pass if provisioning was successful, nil otherwise.
     if(pass == nil){
         NSLog(@"Error: %@",error.localizedDescription);
     }
